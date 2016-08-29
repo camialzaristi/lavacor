@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ListarClientes</string>
+    <string name="action_settings">Settings</string>
+    <string name="listar">Listar Clientes</string>
+    <string name="codigo">Codigo Clientes</string>
+    <string name="nombre">Nombre Clientes</string>
+</resources>
