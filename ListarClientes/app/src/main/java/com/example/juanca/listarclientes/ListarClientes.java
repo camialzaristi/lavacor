@@ -19,6 +19,7 @@ public class ListarClientes extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.listar_clientes);
@@ -32,7 +33,7 @@ public class ListarClientes extends ListActivity {
             @Override
             protected Void doInBackground(String... params){
 
-                listado=WebService.ListarClientes("listarClientes");
+                listado=WebService.listarClientes("ListarClientes");
                 return null;
             }
             @Override

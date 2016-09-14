@@ -4,6 +4,7 @@ package com.example.juanca.listarclientes;
 import com.example.juanca.entidades.Cliente;
 import com.example.juanca.listarclientes.ListarClientes;
 
+import org.ksoap2.HeaderProperty;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
@@ -17,13 +18,13 @@ import java.util.Vector;
 
 public class WebService {
     //Namespace of the Webservice - can be found in WSDL
-    private static String NAMESPACE = "http://servicios.comunidadmascotas/";
+    private static String NAMESPACE = "http://serviciosSoap.lavacor/";
     //Webservice URL - WSDL File location
-    private static String URL = "http://192.168.43.24:8080/comunidadMascotas/WSComunidadMascotas?WSDL";
+    private static String URL = "http://10.0.2.2:8080/Lavacor/WebServiceSoap?WSDL";
     //SOAP Action URI again Namespace + Web method name
-    private static String SOAP_ACTION = "http://servicios.comunidadmascotas/";
+    private static String SOAP_ACTION = "http://serviciosSoap.lavacor/";
 
-    //private static List<HeaderProperty> headerPropertyList = new ArrayList<HeaderProperty>();
+    private static List<HeaderProperty> headerPropertyList = new ArrayList<>();
 
     public static String saludar(String name, String webMethName) {
         String resTxt = null;
@@ -49,7 +50,7 @@ public class WebService {
 
         try {
             // Invoke web service
-            androidHttpTransport.call(SOAP_ACTION + webMethName, envelope);
+            androidHttpTransport.call(SOAP_ACTION + webMethName, envelope,headerPropertyList);
             // Get the response
             SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
             // Assign it to resTxt variable static variable
@@ -65,7 +66,7 @@ public class WebService {
         return resTxt;
     }
 
-    public static List<Cliente> ListarClientes(String nombreMetodo){
+    public static List<Cliente> listarClientes(String nombreMetodo){
         List<Cliente> listado = new ArrayList<>();
         SoapObject request = new SoapObject(NAMESPACE, nombreMetodo);
 
@@ -80,7 +81,7 @@ public class WebService {
 
     try {
         // Invoke web service
-        androidHttpTransport.call(SOAP_ACTION + nombreMetodo, envelope);
+        androidHttpTransport.call(SOAP_ACTION + nombreMetodo, envelope, headerPropertyList);
         // Get the response
         //SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
         // Assign it to resTxt variable static variable
