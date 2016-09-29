@@ -19,9 +19,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/textView2"
-        android:layout_alignBottom="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_marginStart="55dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,9 +30,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/nombre"
         android:id="@+id/textView3"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:layout_below="@+id/txtcodigo"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,7 +40,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/txtnombre"
+        android:textColor="#000000"
         android:layout_below="@+id/textView2"
-        android:layout_toEndOf="@+id/textView"
-        android:textColor="#000000" />
+        android:layout_alignStart="@+id/textView2" />
 </RelativeLayout>
